@@ -78,7 +78,7 @@ app.get('/resource',authenticated, async (req, res) => {
 });
 
 //endpoint to update
-app.put('/resource/:id', async (req, res) => {
+app.put('/resource/:id',authenticated, async (req, res) => {
     try {
       const { id } = req.params;
       const { name, resourceContent } = req.body;
@@ -91,7 +91,7 @@ app.put('/resource/:id', async (req, res) => {
 });
   
   //endpoint to delete
-app.delete('/resource/:id', async (req, res) => {
+app.delete('/resource/:id',authenticated, async (req, res) => {
 try {
     const { id } = req.params;
     await resource.child(id).remove();
